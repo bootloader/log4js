@@ -1,6 +1,6 @@
 {
   "name": "@bootloader/log4js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/bootloader/bootjs-log4js#readme",
   "dependencies": {
-    "@bootloader/utils": "^1.0.6",
+    "@bootloader/utils": "^1.0.7",
     "@bootloader/config": "^1.4.1",
     "log4js": "^6.9.1"
   }
