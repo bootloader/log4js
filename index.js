@@ -25,7 +25,7 @@ log4js.configure({
               return context.getTraceId()
             },
             thread(){
-              return isMainThread ? "main" : `t-${threadId}`;
+              return (isMainThread ? "main" : `t-${threadId}`) +'-' + (context?.getId ? context.getId() : "x");
             }
           }
         }
