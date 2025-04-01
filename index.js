@@ -6,6 +6,14 @@ const { isMainThread, threadId } = require("worker_threads");
 
 
 let defaultLevel = config.getIfPresent('logging.level') || "info";
+// Get the value of debug level (default is 10000)
+const debugLevel = log4js.levels.getLevel("debug");
+const infoLevel = log4js.levels.getLevel("info");
+
+
+// log4js.levels.addLevels({
+//   log: { value: debugLevel.value, colour: debugLevel.colour } // Higher value means higher priority
+// });
 
 log4js.configure({
     appenders: {
@@ -42,7 +50,7 @@ module.exports = {
     getLogger(category){
         let logger = log4js.getLogger(category)
         if(category && !this.mapped[category]){
-            let level = config.getIfPresent(category ? (`logging.${category}.level`) : "logging.level");
+            let level = config.getIfPresent(category ? (`logging.${category}.level`) : "logging.level") || defaultLevel;
             this.mapped[category] = true;
             logger.level = level;
         }
